@@ -1,0 +1,99 @@
+{
+    "storyboard_id": 0,
+    "statistic_id": "string",
+    "video_file_name": "string",
+    "output_config_id": 0,
+    "output": {
+        "video": [
+            {
+                "video_type": "mp4",
+                "quality": 26,
+                "height": 1,
+                "crop_to_ratio": [
+                    4,
+                    5
+                ],
+                "suffix": "string",
+                "overlay": "string",
+                "overlay_alignment": [
+                    "center",
+                    "middle"
+                ],
+                "overlay_scale": "fit",
+                "landing_page_id": "string",
+                "label": "string"
+            }
+        ],
+        "gif": [
+            {
+                "height": 1,
+                "start": 0,
+                "duration": 0,
+                "gif_fps": 1,
+                "gif_loop": 0,
+                "color_depth": 256,
+                "crop_to_ratio": [
+                    4,
+                    5
+                ],
+                "suffix": "string",
+                "overlay": "string",
+                "overlay_alignment": [
+                    "center",
+                    "middle"
+                ],
+                "overlay_scale": "fit",
+                "label": "string"
+            }
+        ],
+        "jpg": [
+            {
+                "height": 1,
+                "time": 0,
+                "crop_to_ratio": [
+                    4,
+                    5
+                ],
+                "suffix": "string",
+                "overlay": "string",
+                "overlay_alignment": [
+                    "center",
+                    "middle"
+                ],
+                "overlay_scale": "fit",
+                "label": "string"
+            }
+        ],
+        "audio": [
+            {
+                "file_type": "wav",
+                "sample_rate": 44100,
+                "bit_depth": 16,
+                "mp3_bitrate": 320,
+                "channels": "mono"
+            }
+        ],
+        "accessibility": {
+            "caption_languages": [
+                "EN",
+                "ES"
+            ],
+            "transcript_languages": [
+                "EN",
+                "FR"
+            ]
+        }
+    },
+    "storage": [
+        0
+    ],
+    "analytics_tags": [
+        "tag_group.tag_name"
+    ],
+    "data": [
+        {
+            "key": "string",
+            "val": "\"Christopher\""
+        }
+    ]
+}
