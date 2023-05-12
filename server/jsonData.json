@@ -28,7 +28,7 @@
             {
                 "height": 1,
                 "start": 0,
-                "duration": 0,
+                "duration": 0.0,
                 "gif_fps": 1,
                 "gif_loop": 0,
                 "color_depth": 256,
