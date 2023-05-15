@@ -40,8 +40,6 @@ const DynamicForm = () => {
 
     useEffect(() => {
 
-        //4. change the map function in the component to formFields instead of mock..
-
         async function fetchFormData() {
             try {
                 const response = await getFormProperties();
