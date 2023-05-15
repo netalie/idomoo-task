@@ -1,5 +1,5 @@
 {
-    "storyboard_id": 0,
+    "storyboard_id": 31193,
     "statistic_id": "string",
     "video_file_name": "string",
     "output_config_id": 0,
@@ -28,7 +28,7 @@
             {
                 "height": 1,
                 "start": 0,
-                "duration": 0.0,
+                "duration": 1,
                 "gif_fps": 1,
                 "gif_loop": 0,
                 "color_depth": 256,
@@ -37,12 +37,6 @@
                     5
                 ],
                 "suffix": "string",
-                "overlay": "string",
-                "overlay_alignment": [
-                    "center",
-                    "middle"
-                ],
-                "overlay_scale": "fit",
                 "label": "string"
             }
         ],
@@ -92,8 +86,24 @@
     ],
     "data": [
         {
-            "key": "string",
-            "val": "\"Christopher\""
+            "Address": "string",
+            "val": "Netanya"
+        },
+        {
+            "EmailAddress": "string",
+            "val": "yarden@gmail.com"
+        },
+        {
+            "Firstbame": "string",
+            "val": "Yarden"
+        },
+        {
+            "Middle name": "string",
+            "val": "Shlomit"
+        },
+        {
+            "Last name": "string",
+            "val": "Stup"
         }
     ]
 }

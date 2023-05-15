@@ -1,12 +1,13 @@
 import { Card, Button, Form } from "react-bootstrap";
 import { useState, useEffect } from "react";
 import UploadImg from "./UploadImg";
-import { getFormProperties } from "../api/storyboards";
+import { getFormProperties, generateVideo } from "../api/storyboards";
 
 
-const DynamicForm = () => {
+const DynamicForm = (props) => {
     const [formFields, setFormFields] = useState([]);
     const [formData, setFormData] = useState({});
+
 
 
     const getInitialFormFields = (dataArray) => {
@@ -25,24 +26,23 @@ const DynamicForm = () => {
     };
 
 
-
     useEffect(() => {
 
         async function fetchFormData() {
             try {
                 const response = await getFormProperties();
                 const data = await response.data;
-                let fields = getInitialFormFields(data);
+                let fieldsObj = getInitialFormFields(data);
                 setFormFields(data);
-                setFormData(fields);
-                return data;
+                setFormData(fieldsObj);
             } catch (error) {
                 console.error('Error fetching form data:', error);
             }
         }
         fetchFormData();
-        console.log(formFields);
     }, []);
+
+
 
     const onChangeFormData = (e) => {
         const { name, value } = e.target;
@@ -53,9 +53,29 @@ const DynamicForm = () => {
         }));
     };
 
-    const onSubmitForm = () => {
+    const onSubmitForm = async () => {
         //I just console logged , make the axios post here and send formData
-        //console.log(formData);
+        let data = [];
+        for (const [key, value] of Object.entries(formData)) {
+            data.push({ key, value });
+        }
+
+        const request = {
+            "storyboard_id": 31193,
+            "output": {
+                "video": [
+                    {
+                        "video_type": "mp4",
+                        "height": 1
+                    }
+                ]
+            },
+            data
+        }
+        const response = await generateVideo(request);
+        console.log(response);
+        props.setVideoUrl(response.output.video[0].links.url);
+        props.setCheckStatusUrl(response.output.video[0].links.check_status_url);
     };
 
     const ongetFormProperties = () => {
@@ -95,9 +115,6 @@ const DynamicForm = () => {
                     </Button>
                 </Form>
             </Card>
-            <Button className="mt-2" onClick={ongetFormProperties}>
-                Get data
-            </Button>
         </div>
     );
 };

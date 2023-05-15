@@ -2,7 +2,7 @@ const axios = require('axios');
 const helperMethods = require('../helperMethods');
 
 async function sendPostRequest(jsonData) {
-    console.log("POST JSON DATA: " + jsonData);
+    console.log(jsonData);
     //get request configuration
     const authString = process.env.ACCOUNT_ID + ":" + process.env.SECRET_KEY;
 

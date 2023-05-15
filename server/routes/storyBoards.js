@@ -20,8 +20,8 @@ router.post('/generate', async (req, res) => {
     console.log("IN POST REQUEST, RECIEVED DATA FROM CLIENT IS: " + data);
     if (data) {
         try {
-            const response = await axiosPost.sendPostRequest();
-            res.json(response.data);
+            const response = await axiosPost.sendPostRequest(data);
+            res.json(response);
         } catch (error) {
             console.error('ERROR', error.message);
             res.status(500).json(response.error);
