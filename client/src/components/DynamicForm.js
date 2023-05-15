@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import UploadImg from "./UploadImg";
 import { getFormProperties } from "../api/storyboards";
 
+
 const DynamicForm = () => {
     const [formFields, setFormFields] = useState([]);
     const [formData, setFormData] = useState({});
@@ -22,34 +23,39 @@ const DynamicForm = () => {
 
     const getInitialFormFields = (dataArray) => {
         const initialValues = {};
-        dataArray.forEach((field) => {
-            if (field.val === "number") {
-                initialValues[field.key.replace(/\s/g, "")] = 0;
-            } else {
-                initialValues[field.key.replace(/\s/g, "")] = "";
-            }
-        });
+        if (dataArray && dataArray.length > 0) {
+            dataArray.forEach((field) => {
+                if (field.val === "number") {
+                    initialValues[field.key.replace(/\s/g, "")] = 0;
+                } else {
+                    initialValues[field.key.replace(/\s/g, "")] = "";
+                }
+            });
+
+        }
         return initialValues;
     };
 
+
+
     useEffect(() => {
-        //1.You need to make a get req from their server and get the form fields
-        //2.save the array in formFields state.
-        //3.call getInitialFormFields with the array and set the function value to formData
+
         //4. change the map function in the component to formFields instead of mock..
-        //5.you can earase the function I have now in useEffect, it was juste to check the mock data
-        setFormData(getInitialFormFields(mockFormFields));
-        // async function fetchFormData() {
-        //     try {
-        //       const response = await fetch('/api/form-data');
-        //       const data = await response.json();
-        //       setFormFields(data);
-        //       setFormData(getInitialFormFields(formData));
-        //     } catch (error) {
-        //       console.error('Error fetching form data:', error);
-        //     }
-        //   }
-        //   fetchFormData();
+
+        async function fetchFormData() {
+            try {
+                const response = await getFormProperties();
+                const data = await response.data;
+                let fields = getInitialFormFields(data);
+                setFormFields(fields);
+                setFormData(fields);
+                return data;
+            } catch (error) {
+                console.error('Error fetching form data:', error);
+            }
+        }
+        fetchFormData();
+        console.log(formFields);
     }, []);
 
     const onChangeFormData = (e) => {
@@ -63,7 +69,7 @@ const DynamicForm = () => {
 
     const onSubmitForm = () => {
         //I just console logged , make the axios post here and send formData
-        console.log(formData);
+        //console.log(formData);
     };
 
     const ongetFormProperties = () => {
@@ -80,7 +86,7 @@ const DynamicForm = () => {
                 }}
             >
                 <Form>
-                    {mockFormFields.map((field, index) => {
+                    {formFields.map((field, index) => {
                         if (field.val === "image") {
                             return <UploadImg key={index} />;
                         } else {
