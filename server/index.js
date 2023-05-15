@@ -4,32 +4,22 @@ const dotenv = require('dotenv').config();
 const app = express();
 const router = express.Router();
 const routes = require("./routes/storyBoards");
-const path = require("path");
 
-const PORT = process.env.PORT || 3500;
-
-//const axios = require('axios');
-
-//ceates CORS header, this way any origin can get the reslonse of this server 
+const PORT = process.env.PORT;
 
 
-app.use(
-    cors({
-        credentials: true,
-        origin: process.env.ORIGIN,
-    })
-);
-
+const corsOptions = {
+    origin: '*',
+    credentials: true,            //access-control-allow-credentials:true
+    optionSuccessStatus: 200
+}
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use("/", routes);
 
 
-//const axiosGet = require('./axios_requests/axiosGet');
-//const axiosPost = require('./axios_requests/axiosPost');
+
 //const fs = require('fs');
-
-//axiosGet.sendGetRequest();
-
 // Read JSON file
 // const parsedData = fs.readFile('./jsonData.json', 'utf-8', (err, data) => {
 //     if (err) {

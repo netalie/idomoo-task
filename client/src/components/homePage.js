@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import Input from "./Input";
 import { getFormProperties, generateVideo } from "../api/storyboards"
-import axios from "axios";
 
 const HomePage = () => {
 
@@ -9,6 +8,8 @@ const HomePage = () => {
 
     useEffect(() => {
         formObjList = getFormProperties();
+        console.log("IN USE EFFECT");
+        console.log(formObjList.data);
         setFormValues(formObjList.data);
         //setInputValues keys 
 
