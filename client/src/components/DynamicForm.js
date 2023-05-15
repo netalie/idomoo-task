@@ -47,7 +47,7 @@ const DynamicForm = () => {
                 const response = await getFormProperties();
                 const data = await response.data;
                 let fields = getInitialFormFields(data);
-                setFormFields(fields);
+                setFormFields(data);
                 setFormData(fields);
                 return data;
             } catch (error) {
