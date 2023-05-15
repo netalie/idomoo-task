@@ -8,18 +8,6 @@ const DynamicForm = () => {
     const [formFields, setFormFields] = useState([]);
     const [formData, setFormData] = useState({});
 
-    const mockFormFields = [
-        { key: "Email Adress", val: "string", description: "Enter an Email" },
-        { key: "First Name", val: "string", description: "Enter First Name" },
-        { key: "Last Name", val: "string", description: "Enter Last Name" },
-        {
-            key: "Telephone Number",
-            val: "tel",
-            description: "Enter Telephone Number",
-        },
-        { key: "Some Number", val: "number", description: "Enter Some Number" },
-        { key: "image", val: "image", description: "Upload Image" },
-    ];
 
     const getInitialFormFields = (dataArray) => {
         const initialValues = {};
