@@ -54,7 +54,6 @@ const DynamicForm = (props) => {
     };
 
     const onSubmitForm = async () => {
-        //I just console logged , make the axios post here and send formData
         let data = [];
         for (const [key, value] of Object.entries(formData)) {
             data.push({ key, value });

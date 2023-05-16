@@ -29,7 +29,7 @@ const VideoComponent = (props) => {
                     console.error(error);
                 }
             };
-
+            //polling 
             interval = setInterval(() => {
                 fetchData();
             }, 30000); // Make the API request every 30 seconds
