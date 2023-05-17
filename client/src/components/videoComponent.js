@@ -5,17 +5,17 @@ const VideoComponent = (props) => {
     const [isVideoReady, setIsVideoReady] = useState(false);
 
     useEffect(() => {
-        if (isVideoReady && props.videoUrl !== '') {
+        if (props.videoUrl !== '') {
             const options = {
                 size: 'hd',
                 src: props.videoUrl,
-                autoplay: true
+                //autoplay: true
             }
 
             window.idmPlayerCreate(options, 'video-player')
         }
 
-    }, [isVideoReady])
+    }, [props.videoUrl])
 
     useEffect(() => {
         let interval;
