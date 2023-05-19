@@ -12,7 +12,7 @@ const VideoComponent = (props) => {
                 //autoplay: true
             }
 
-            window.idmPlayerCreate(options, 'video-player')
+            window.idmPlayerCreate(options, 'idm-player')
         }
 
     }, [props.videoUrl])
@@ -43,7 +43,7 @@ const VideoComponent = (props) => {
     }, [props.checkStatusUrl]);
 
     return (
-        <div id="video-player"> </div>
+        <div id="idm-player"> </div>
     );
 };
 

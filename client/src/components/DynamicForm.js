@@ -64,8 +64,9 @@ const DynamicForm = (props) => {
             "output": {
                 "video": [
                     {
-                        "video_type": "mp4",
-                        "height": 1
+                        "height": 720,
+                        "video_type": "hls",
+                        "landing_page_id": null
                     }
                 ]
             },
